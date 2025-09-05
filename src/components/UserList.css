@@ -332,6 +332,7 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: 1rem;
+  pointer-events: none;
 }
 
 .user-card:hover::before {
@@ -479,6 +480,8 @@
 
 .edit-form {
   padding: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .edit-form h3 {
