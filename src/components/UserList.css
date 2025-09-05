@@ -435,6 +435,88 @@
   margin-bottom: 1rem;
 }
 
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .user-list {
+    padding: 1.5rem;
+  }
+  
+  .header {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .header-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .add-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .content {
+    padding: 1.5rem;
+  }
+  
+  .users-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .user-card {
+    padding: 1rem;
+    min-height: 180px;
+  }
+  
+  .user-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .user-card p {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-card {
+    padding: 1.5rem;
+  }
+  
+  .form-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+  }
+  
+  .form-group input {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+  
+  .edit-button, .delete-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 768px) {
   .user-list {
     padding: 0.5rem;

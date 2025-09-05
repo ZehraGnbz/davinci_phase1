@@ -466,6 +466,104 @@
   margin-bottom: 1rem;
 }
 
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .post-list {
+    padding: 1.5rem;
+  }
+  
+  .header {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .header-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .add-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .content {
+    padding: 1.5rem;
+  }
+  
+  .posts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .post-card {
+    padding: 1rem;
+    min-height: 180px;
+  }
+  
+  .post-header h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .post-meta {
+    gap: 0.75rem;
+  }
+  
+  .post-id {
+    font-size: 0.8rem;
+  }
+  
+  .user-info {
+    font-size: 0.85rem;
+  }
+  
+  .user-info svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .user-id {
+    font-size: 0.75rem;
+  }
+  
+  .form-card {
+    padding: 1.5rem;
+  }
+  
+  .form-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+  }
+  
+  .form-group input, .form-group textarea {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+  
+  .edit-button, .delete-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 768px) {
   .post-list {
     padding: 0.5rem;

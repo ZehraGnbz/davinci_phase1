@@ -208,6 +208,61 @@
   transform: translateY(-2px);
 }
 
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .header-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .main-content {
+    padding: 1.5rem;
+  }
+  
+  .welcome-section h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .feature-card {
+    padding: 1.25rem;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .feature-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .card-button {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
+
 @media (max-width: 768px) {
   .header {
     padding: 0.75rem;
