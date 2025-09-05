@@ -26,8 +26,16 @@ function App() {
 
   return (
     <div className="app">
-      <Homepage onNavigate={handleNavigate} currentPage={currentPage} />
-      {currentPage !== 'home' && renderCurrentPage()}
+      {currentPage === 'home' ? (
+        <Homepage onNavigate={handleNavigate} currentPage={currentPage} />
+      ) : (
+        <>
+          <Homepage onNavigate={handleNavigate} currentPage={currentPage} />
+          <div className="page-content">
+            {renderCurrentPage()}
+          </div>
+        </>
+      )}
     </div>
   );
 }
