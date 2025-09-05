@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { User, CreateUserData } from '../types';
 import { userApi } from '../services/api';
-import { Plus, Edit, Trash2, Save, X, Users, ArrowLeft } from 'lucide-react';
+import { Plus, Edit, Trash2, Save, X, Users, ArrowLeft, Home, FileText } from 'lucide-react';
 import './UserList.css';
 
 interface UserListProps {
@@ -107,23 +107,46 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
 
   return (
     <div className="user-list">
-      <div className="page-header">
+      <header className="header">
         <div className="header-content">
           <button className="nav-back-button" onClick={() => onNavigate('home')}>
             <ArrowLeft size={20} />
           </button>
           <Users className="header-icon" />
-          <h1>Users Management</h1>
+          <h1>Phase 1</h1>
+          <nav className="nav">
+            <button
+              className="nav-button"
+              onClick={() => onNavigate('home')}
+            >
+              <Home size={20} />
+              Home
+            </button>
+            <button
+              className="nav-button active"
+              onClick={() => onNavigate('users')}
+            >
+              <Users size={20} />
+              Users
+            </button>
+            <button
+              className="nav-button"
+              onClick={() => onNavigate('posts')}
+            >
+              <FileText size={20} />
+              Posts
+            </button>
+          </nav>
+          <button
+            className="add-button"
+            onClick={() => setIsCreating(true)}
+            disabled={isCreating || editingId !== null}
+          >
+            <Plus size={20} />
+            Add User
+          </button>
         </div>
-        <button
-          className="add-button"
-          onClick={() => setIsCreating(true)}
-          disabled={isCreating || editingId !== null}
-        >
-          <Plus size={20} />
-          Add User
-        </button>
-      </div>
+      </header>
 
       {error && (
         <div className="error-message">

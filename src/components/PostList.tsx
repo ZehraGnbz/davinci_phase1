@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Post, CreatePostData, User } from '../types';
 import { postApi, userApi } from '../services/api';
-import { Plus, Edit, Trash2, Save, X, FileText, User as UserIcon, ArrowLeft } from 'lucide-react';
+import { Plus, Edit, Trash2, Save, X, FileText, User as UserIcon, ArrowLeft, Home, Users } from 'lucide-react';
 import './PostList.css';
 
 interface PostListProps {
@@ -117,23 +117,46 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
 
   return (
     <div className="post-list">
-      <div className="page-header">
+      <header className="header">
         <div className="header-content">
           <button className="nav-back-button" onClick={() => onNavigate('home')}>
             <ArrowLeft size={20} />
           </button>
           <FileText className="header-icon" />
-          <h1>Posts Management</h1>
+          <h1>Phase 1</h1>
+          <nav className="nav">
+            <button
+              className="nav-button"
+              onClick={() => onNavigate('home')}
+            >
+              <Home size={20} />
+              Home
+            </button>
+            <button
+              className="nav-button"
+              onClick={() => onNavigate('users')}
+            >
+              <Users size={20} />
+              Users
+            </button>
+            <button
+              className="nav-button active"
+              onClick={() => onNavigate('posts')}
+            >
+              <FileText size={20} />
+              Posts
+            </button>
+          </nav>
+          <button
+            className="add-button"
+            onClick={() => setIsCreating(true)}
+            disabled={isCreating || editingId !== null}
+          >
+            <Plus size={20} />
+            Add Post
+          </button>
         </div>
-        <button
-          className="add-button"
-          onClick={() => setIsCreating(true)}
-          disabled={isCreating || editingId !== null}
-        >
-          <Plus size={20} />
-          Add Post
-        </button>
-      </div>
+      </header>
 
       {error && (
         <div className="error-message">
