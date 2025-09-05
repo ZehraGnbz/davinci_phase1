@@ -276,15 +276,18 @@
 }
 
 .user-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   backdrop-filter: blur(20px);
   border-radius: 1rem;
   padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: visible;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(226, 232, 240, 0.8);
   animation: slideInUp 0.6s ease-out;
   min-height: 250px;
   display: flex;
@@ -325,9 +328,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(147, 51, 234, 0.08));
   opacity: 0;
   transition: opacity 0.3s ease;
+  border-radius: 1rem;
 }
 
 .user-card:hover::before {
@@ -336,8 +340,11 @@
 
 .user-card:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-  border-color: rgba(102, 126, 234, 0.3);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 .user-info {
@@ -349,20 +356,23 @@
 
 .user-info h3 {
   margin-top: 0;
-  color: #333;
+  color: #1e293b;
   font-size: 1.3rem;
+  font-weight: 600;
   margin-bottom: 1rem;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  line-height: 1.4;
 }
 
 .user-info p {
   margin: 0.5rem 0;
-  color: #666;
+  color: #64748b;
   line-height: 1.5;
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
+  font-size: 0.9rem;
 }
 
 .user-info strong {

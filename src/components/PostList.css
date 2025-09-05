@@ -254,15 +254,18 @@
 }
 
 .post-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   backdrop-filter: blur(20px);
   border-radius: 1rem;
   padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: visible;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(226, 232, 240, 0.8);
   min-height: 250px;
   display: flex;
   flex-direction: column;
@@ -284,9 +287,30 @@
   }
 }
 
+.post-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(59, 130, 246, 0.08));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 1rem;
+}
+
+.post-card:hover::before {
+  opacity: 1;
+}
+
 .post-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .post-header {
@@ -296,8 +320,9 @@
 
 .post-header h3 {
   margin-top: 0;
-  color: #333;
+  color: #1e293b;
   font-size: 1.3rem;
+  font-weight: 600;
   margin-bottom: 0.75rem;
   line-height: 1.4;
   word-wrap: break-word;
@@ -311,7 +336,7 @@
 }
 
 .post-id {
-  color: #666;
+  color: #64748b;
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -320,13 +345,13 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #667eea;
+  color: #3b82f6;
   font-weight: 500;
   flex-wrap: wrap;
 }
 
 .user-id {
-  color: #999;
+  color: #94a3b8;
   font-size: 0.9rem;
   font-weight: normal;
 }
@@ -337,12 +362,13 @@
 }
 
 .post-body p {
-  color: #666;
+  color: #64748b;
   line-height: 1.6;
   margin: 0;
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
+  font-size: 0.9rem;
 }
 
 .post-actions {
