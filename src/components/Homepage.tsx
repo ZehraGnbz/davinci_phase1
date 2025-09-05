@@ -2,17 +2,18 @@ import React from 'react';
 import { Users, FileText, Home } from 'lucide-react';
 import './Homepage.css';
 
-interface HomepageProps {
+interface HomepageProps
+{
   onNavigate: (page: 'home' | 'users' | 'posts') => void;
   currentPage: 'home' | 'users' | 'posts';
 }
 
-const Homepage: React.FC<HomepageProps> = ({ onNavigate, currentPage }) => {
+const Homepage: React.FC<HomepageProps> = ({ onNavigate, currentPage }) =>
+{
   return (
     <div className="homepage">
       <header className="header">
         <div className="header-content">
-          <Home className="header-icon" />
           <h1>Phase 1</h1>
           <nav className="nav">
             <button
@@ -52,24 +53,30 @@ const Homepage: React.FC<HomepageProps> = ({ onNavigate, currentPage }) => {
 
           <div className="feature-cards">
             <div className="feature-card" onClick={() => onNavigate('users')}>
-              <Users className="feature-icon" />
+              <Users className="feature-card-icon" />
               <h3>Users</h3>
               <p>Manage user information including name, username, and email</p>
-              <button className="card-button">View Users</button>
+              <button className="feature-card-button">
+                <Users size={20} />
+                View Users
+              </button>
             </div>
 
             <div className="feature-card" onClick={() => onNavigate('posts')}>
-              <FileText className="feature-icon" />
+              <FileText className="feature-card-icon" />
               <h3>Posts</h3>
               <p>Manage posts and see their relationship to users</p>
-              <button className="card-button">View Posts</button>
+              <button className="feature-card-button">
+                <FileText size={20} />
+                View Posts
+              </button>
             </div>
           </div>
-
-                         </main>
-             )}
-           </div>
-         );
-       };
+        </main>
+      )}
+    </div>
+  );
+};
 
 export default Homepage;
+

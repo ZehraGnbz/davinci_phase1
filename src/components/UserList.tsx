@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import type { User, CreateUserData } from '../types';
 import { userApi } from '../services/api';
-import { Plus, Edit, Trash2, Save, X, Users, ArrowLeft, Home, FileText } from 'lucide-react';
+import { Plus, Edit, Trash2, Save, X, ArrowLeft, Home, Users, FileText } from 'lucide-react';
 import './UserList.css';
 
-interface UserListProps {
+interface UserListProps
+{
   onNavigate: (page: 'home' | 'users' | 'posts') => void;
 }
 
-const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
+const UserList: React.FC<UserListProps> = ({ onNavigate }) =>
+{
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,57 +22,73 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
     email: '',
   });
 
-  useEffect(() => {
+  useEffect(() =>
+  {
     fetchUsers();
   }, []);
 
-  const fetchUsers = async () => {
-    try {
+  const fetchUsers = async () =>
+  {
+    try
+    {
       setLoading(true);
       setError(null);
       const data = await userApi.getAll();
       setUsers(data);
-    } catch {
+    } catch
+    {
       setError('Failed to fetch users');
-    } finally {
+    } finally
+    {
       setLoading(false);
     }
   };
 
-  const handleCreate = async () => {
-    try {
+  const handleCreate = async () =>
+  {
+    try
+    {
       const newUser = await userApi.create(formData);
       setUsers([...users, newUser]);
       setIsCreating(false);
       setFormData({ name: '', username: '', email: '' });
-    } catch {
+    } catch
+    {
       setError('Failed to create user');
     }
   };
 
-  const handleUpdate = async (id: number) => {
-    try {
+  const handleUpdate = async (id: number) =>
+  {
+    try
+    {
       const updatedUser = await userApi.update(id, formData);
       setUsers(users.map(user => user.id === id ? updatedUser : user));
       setEditingId(null);
       setFormData({ name: '', username: '', email: '' });
-    } catch {
+    } catch
+    {
       setError('Failed to update user');
     }
   };
 
-  const handleDelete = async (id: number) => {
-    if (window.confirm('Are you sure you want to delete this user?')) {
-      try {
+  const handleDelete = async (id: number) =>
+  {
+    if (window.confirm('Are you sure you want to delete this user?'))
+    {
+      try
+      {
         await userApi.delete(id);
         setUsers(users.filter(user => user.id !== id));
-      } catch {
+      } catch
+      {
         setError('Failed to delete user');
       }
     }
   };
 
-  const startEdit = (user: User) => {
+  const startEdit = (user: User) =>
+  {
     setEditingId(user.id);
     setFormData({
       name: user.name,
@@ -79,13 +97,15 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
     });
   };
 
-  const cancelEdit = () => {
+  const cancelEdit = () =>
+  {
     setEditingId(null);
     setIsCreating(false);
     setFormData({ name: '', username: '', email: '' });
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+  {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -93,7 +113,8 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
     }));
   };
 
-  if (loading) {
+  if (loading)
+  {
     return (
       <div className="user-list">
         <div className="loading">Loading users...</div>
@@ -108,7 +129,6 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
           <button className="nav-back-button" onClick={() => onNavigate('home')}>
             <ArrowLeft size={20} />
           </button>
-          <Users className="header-icon" />
           <h1>Phase 1</h1>
           <nav className="nav">
             <button

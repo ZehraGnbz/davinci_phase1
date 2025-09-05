@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import type { Post, CreatePostData, User } from '../types';
 import { postApi, userApi } from '../services/api';
-import { Plus, Edit, Trash2, Save, X, FileText, User as UserIcon, ArrowLeft, Home, Users } from 'lucide-react';
+import { Plus, Edit, Trash2, Save, X, ArrowLeft, Home, Users, FileText } from 'lucide-react';
 import './PostList.css';
 
-interface PostListProps {
+interface PostListProps
+{
   onNavigate: (page: 'home' | 'users' | 'posts') => void;
 }
 
-const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
+const PostList: React.FC<PostListProps> = ({ onNavigate }) =>
+{
   const [posts, setPosts] = useState<Post[]>([]);
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -21,12 +23,15 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
     body: '',
   });
 
-  useEffect(() => {
+  useEffect(() =>
+  {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    try {
+  const fetchData = async () =>
+  {
+    try
+    {
       setLoading(true);
       setError(null);
       const [postsData, usersData] = await Promise.all([
@@ -35,52 +40,66 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
       ]);
       setPosts(postsData);
       setUsers(usersData);
-    } catch {
+    } catch
+    {
       setError('Failed to fetch data');
-    } finally {
+    } finally
+    {
       setLoading(false);
     }
   };
 
-  const getUserName = (userId: number): string => {
+  const getUserName = (userId: number): string =>
+  {
     const user = users.find(u => u.id === userId);
     return user ? user.name : `User ${userId}`;
   };
 
-  const handleCreate = async () => {
-    try {
+  const handleCreate = async () =>
+  {
+    try
+    {
       const newPost = await postApi.create(formData);
       setPosts([...posts, newPost]);
       setIsCreating(false);
       setFormData({ userId: 1, title: '', body: '' });
-    } catch {
+    } catch
+    {
       setError('Failed to create post');
     }
   };
 
-  const handleUpdate = async (id: number) => {
-    try {
+  const handleUpdate = async (id: number) =>
+  {
+    try
+    {
       const updatedPost = await postApi.update(id, formData);
       setPosts(posts.map(post => post.id === id ? updatedPost : post));
       setEditingId(null);
       setFormData({ userId: 1, title: '', body: '' });
-    } catch {
+    } catch
+    {
       setError('Failed to update post');
     }
   };
 
-  const handleDelete = async (id: number) => {
-    if (window.confirm('Are you sure you want to delete this post?')) {
-      try {
+  const handleDelete = async (id: number) =>
+  {
+    if (window.confirm('Are you sure you want to delete this post?'))
+    {
+      try
+      {
         await postApi.delete(id);
         setPosts(posts.filter(post => post.id !== id));
-      } catch {
+      } catch
+      {
         setError('Failed to delete post');
       }
     }
   };
 
-  const startEdit = (post: Post) => {
+  const startEdit = (post: Post) =>
+  {
     setEditingId(post.id);
     setFormData({
       userId: post.userId,
@@ -89,13 +108,15 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
     });
   };
 
-  const cancelEdit = () => {
+  const cancelEdit = () =>
+  {
     setEditingId(null);
     setIsCreating(false);
     setFormData({ userId: 1, title: '', body: '' });
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+  {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -103,7 +124,8 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
     }));
   };
 
-  if (loading) {
+  if (loading)
+  {
     return (
       <div className="post-list">
         <div className="loading">Loading posts...</div>
@@ -118,7 +140,6 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
           <button className="nav-back-button" onClick={() => onNavigate('home')}>
             <ArrowLeft size={20} />
           </button>
-          <FileText className="header-icon" />
           <h1>Phase 1</h1>
           <nav className="nav">
             <button
@@ -268,7 +289,6 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
                     <div className="post-meta">
                       <span className="post-id">ID: {post.id}</span>
                       <div className="user-info">
-                        <UserIcon size={16} />
                         <span>{getUserName(post.userId)}</span>
                         <span className="user-id">(User ID: {post.userId})</span>
                       </div>
