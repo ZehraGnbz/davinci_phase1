@@ -9,7 +9,7 @@ export interface Post {
   userId: number;
   id: number;
   title: string;
-  body?: string;
+  body: string;
 }
 
 export interface CreateUserData {
@@ -21,5 +21,5 @@ export interface CreateUserData {
 export interface CreatePostData {
   userId: number;
   title: string;
-  body?: string;
+  body: string;
 }
