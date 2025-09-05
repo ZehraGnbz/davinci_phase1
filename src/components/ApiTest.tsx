@@ -67,7 +67,7 @@ const ApiTest: React.FC = () => {
       const filteredPostsResponse = await fetch('https://jsonplaceholder.typicode.com/posts?userId=1');
       const filteredPosts = await filteredPostsResponse.json();
       results.push(`✅ Posts filtered by userId=1: ${filteredPosts.length} posts`);
-      results.push(`   All posts belong to user 1: ${filteredPosts.every((post: any) => post.userId === 1)}`);
+      results.push(`   All posts belong to user 1: ${filteredPosts.every((post: { userId: number }) => post.userId === 1)}`);
       results.push('   Relationship through userId field ✓\n');
 
       // Test 6: Update a user
