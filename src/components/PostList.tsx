@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import type { Post, CreatePostData, User } from '../types';
 import { postApi, userApi } from '../services/api';
 import { Plus, Edit, Trash2, Save, X, FileText, User as UserIcon, ArrowLeft } from 'lucide-react';
-import FloatingParticles from './FloatingParticles';
-import LoadingSpinner from './LoadingSpinner';
 import './PostList.css';
 
 interface PostListProps {
@@ -112,15 +110,13 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
   if (loading) {
     return (
       <div className="post-list">
-        <FloatingParticles />
-        <LoadingSpinner />
+        <div className="loading">Loading posts...</div>
       </div>
     );
   }
 
   return (
     <div className="post-list">
-      <FloatingParticles />
       <div className="page-header">
         <div className="header-content">
           <button className="nav-back-button" onClick={() => onNavigate('home')}>

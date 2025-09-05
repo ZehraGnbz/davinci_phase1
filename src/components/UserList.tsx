@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import type { User, CreateUserData } from '../types';
 import { userApi } from '../services/api';
 import { Plus, Edit, Trash2, Save, X, Users, ArrowLeft } from 'lucide-react';
-import FloatingParticles from './FloatingParticles';
-import LoadingSpinner from './LoadingSpinner';
 import './UserList.css';
 
 interface UserListProps {
@@ -102,15 +100,13 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
   if (loading) {
     return (
       <div className="user-list">
-        <FloatingParticles />
-        <LoadingSpinner />
+        <div className="loading">Loading users...</div>
       </div>
     );
   }
 
   return (
     <div className="user-list">
-      <FloatingParticles />
       <div className="page-header">
         <div className="header-content">
           <button className="nav-back-button" onClick={() => onNavigate('home')}>

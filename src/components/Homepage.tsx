@@ -1,7 +1,5 @@
 import React from 'react';
 import { Users, FileText, Home } from 'lucide-react';
-import FloatingParticles from './FloatingParticles';
-import ApiTest from './ApiTest';
 import './Homepage.css';
 
 interface HomepageProps {
@@ -12,7 +10,6 @@ interface HomepageProps {
 const Homepage: React.FC<HomepageProps> = ({ onNavigate, currentPage }) => {
   return (
     <div className="homepage">
-      <FloatingParticles />
       <header className="header">
         <div className="header-content">
           <Home className="header-icon" />
@@ -69,11 +66,10 @@ const Homepage: React.FC<HomepageProps> = ({ onNavigate, currentPage }) => {
             </div>
           </div>
 
-          <ApiTest />
-        </main>
-      )}
-    </div>
-  );
-};
+                         </main>
+             )}
+           </div>
+         );
+       };
 
 export default Homepage;
