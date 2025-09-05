@@ -67,13 +67,6 @@
   color: #667eea;
   width: 2rem;
   height: 2rem;
-  animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-10px); }
-  60% { transform: translateY(-5px); }
 }
 
 .header h1 {

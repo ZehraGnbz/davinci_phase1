@@ -67,12 +67,6 @@
   color: #667eea;
   width: 2rem;
   height: 2rem;
-  animation: rotate 3s linear infinite;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .header h1 {
