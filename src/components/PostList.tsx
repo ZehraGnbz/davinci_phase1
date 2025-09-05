@@ -35,9 +35,8 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
       ]);
       setPosts(postsData);
       setUsers(usersData);
-    } catch (err) {
+    } catch {
       setError('Failed to fetch data');
-      console.error('Error fetching data:', err);
     } finally {
       setLoading(false);
     }
@@ -54,9 +53,8 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
       setPosts([...posts, newPost]);
       setIsCreating(false);
       setFormData({ userId: 1, title: '', body: '' });
-    } catch (err) {
+    } catch {
       setError('Failed to create post');
-      console.error('Error creating post:', err);
     }
   };
 
@@ -66,9 +64,8 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
       setPosts(posts.map(post => post.id === id ? updatedPost : post));
       setEditingId(null);
       setFormData({ userId: 1, title: '', body: '' });
-    } catch (err) {
+    } catch {
       setError('Failed to update post');
-      console.error('Error updating post:', err);
     }
   };
 
@@ -77,9 +74,8 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
       try {
         await postApi.delete(id);
         setPosts(posts.filter(post => post.id !== id));
-      } catch (err) {
+      } catch {
         setError('Failed to delete post');
-        console.error('Error deleting post:', err);
       }
     }
   };

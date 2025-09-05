@@ -18,7 +18,6 @@ const isApiAvailable = async (): Promise<boolean> => {
     await api.get('/users');
     return true;
   } catch {
-    console.warn('JSONPlaceholder API not available, using sample data');
     return false;
   }
 };

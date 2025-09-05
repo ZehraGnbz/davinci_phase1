@@ -30,9 +30,8 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
       setError(null);
       const data = await userApi.getAll();
       setUsers(data);
-    } catch (err) {
+    } catch {
       setError('Failed to fetch users');
-      console.error('Error fetching users:', err);
     } finally {
       setLoading(false);
     }
@@ -44,9 +43,8 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
       setUsers([...users, newUser]);
       setIsCreating(false);
       setFormData({ name: '', username: '', email: '' });
-    } catch (err) {
+    } catch {
       setError('Failed to create user');
-      console.error('Error creating user:', err);
     }
   };
 
@@ -56,9 +54,8 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
       setUsers(users.map(user => user.id === id ? updatedUser : user));
       setEditingId(null);
       setFormData({ name: '', username: '', email: '' });
-    } catch (err) {
+    } catch {
       setError('Failed to update user');
-      console.error('Error updating user:', err);
     }
   };
 
@@ -67,9 +64,8 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
       try {
         await userApi.delete(id);
         setUsers(users.filter(user => user.id !== id));
-      } catch (err) {
+      } catch {
         setError('Failed to delete user');
-        console.error('Error deleting user:', err);
       }
     }
   };
