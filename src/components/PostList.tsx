@@ -268,7 +268,7 @@ const PostList: React.FC<PostListProps> = ({ onNavigate }) => {
                     <button
                       className="edit-button"
                       onClick={() => startEdit(post)}
-                      disabled={isCreating || editingId !== null}
+                      disabled={isCreating || (editingId !== null && editingId !== post.id)}
                     >
                       <Edit size={16} />
                       Edit

@@ -239,7 +239,7 @@ const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
                     <button
                       className="edit-button"
                       onClick={() => startEdit(user)}
-                      disabled={isCreating || editingId !== null}
+                      disabled={isCreating || (editingId !== null && editingId !== user.id)}
                     >
                       <Edit size={16} />
                       Edit
