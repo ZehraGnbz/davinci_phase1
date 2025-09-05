@@ -16,9 +16,9 @@ function App() {
   const renderCurrentPage = () => {
     switch (currentPage) {
       case 'users':
-        return <UserList />;
+        return <UserList onNavigate={handleNavigate} />;
       case 'posts':
-        return <PostList />;
+        return <PostList onNavigate={handleNavigate} />;
       default:
         return <Homepage onNavigate={handleNavigate} currentPage={currentPage} />;
     }
@@ -26,16 +26,7 @@ function App() {
 
   return (
     <div className="app">
-      {currentPage === 'home' ? (
-        <Homepage onNavigate={handleNavigate} currentPage={currentPage} />
-      ) : (
-        <>
-          <Homepage onNavigate={handleNavigate} currentPage={currentPage} />
-          <div className="page-content">
-            {renderCurrentPage()}
-          </div>
-        </>
-      )}
+      {renderCurrentPage()}
     </div>
   );
 }

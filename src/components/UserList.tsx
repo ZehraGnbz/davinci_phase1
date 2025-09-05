@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import type { User, CreateUserData } from '../types';
 import { userApi } from '../services/api';
-import { Plus, Edit, Trash2, Save, X, Users } from 'lucide-react';
+import { Plus, Edit, Trash2, Save, X, Users, ArrowLeft } from 'lucide-react';
 import FloatingParticles from './FloatingParticles';
 import LoadingSpinner from './LoadingSpinner';
 import './UserList.css';
 
-const UserList: React.FC = () => {
+interface UserListProps {
+  onNavigate: (page: 'home' | 'users' | 'posts') => void;
+}
+
+const UserList: React.FC<UserListProps> = ({ onNavigate }) => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -107,8 +111,11 @@ const UserList: React.FC = () => {
   return (
     <div className="user-list">
       <FloatingParticles />
-      <div className="header">
+      <div className="page-header">
         <div className="header-content">
+          <button className="nav-back-button" onClick={() => onNavigate('home')}>
+            <ArrowLeft size={20} />
+          </button>
           <Users className="header-icon" />
           <h1>Users Management</h1>
         </div>

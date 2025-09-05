@@ -24,7 +24,7 @@
   66% { transform: translateY(10px) rotate(-1deg); }
 }
 
-.header {
+.page-header {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   padding: 1rem 2rem;
@@ -42,6 +42,25 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.nav-back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(102, 126, 234, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-back-button:hover {
+  background: rgba(102, 126, 234, 0.2);
+  transform: scale(1.1);
 }
 
 .header-icon {
@@ -229,9 +248,26 @@
 
 .users-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
   animation: fadeInUp 0.8s ease-out;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .users-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .users-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0;
+  }
 }
 
 @keyframes fadeInUp {
@@ -256,6 +292,23 @@
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
   animation: slideInUp 0.6s ease-out;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .user-card {
+    padding: 1rem;
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-card {
+    padding: 0.75rem;
+    min-height: 160px;
+  }
 }
 
 @keyframes slideInUp {
