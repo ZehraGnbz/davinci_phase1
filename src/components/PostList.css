@@ -240,6 +240,7 @@
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1.5rem;
   padding: 0 1rem;
+  align-items: start;
 }
 
 @media (max-width: 768px) {
@@ -266,24 +267,26 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  min-height: 200px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 768px) {
   .post-card {
     padding: 1rem;
-    min-height: 180px;
+    min-height: 220px;
   }
 }
 
 @media (max-width: 480px) {
   .post-card {
     padding: 0.75rem;
-    min-height: 160px;
+    min-height: 200px;
   }
 }
 
@@ -294,6 +297,7 @@
 
 .post-header {
   margin-bottom: 1rem;
+  flex: 1;
 }
 
 .post-header h3 {
@@ -302,6 +306,8 @@
   font-size: 1.3rem;
   margin-bottom: 0.75rem;
   line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .post-meta {
@@ -322,6 +328,7 @@
   gap: 0.5rem;
   color: #667eea;
   font-weight: 500;
+  flex-wrap: wrap;
 }
 
 .user-id {
@@ -332,12 +339,16 @@
 
 .post-body {
   margin-bottom: 1.5rem;
+  flex: 1;
 }
 
 .post-body p {
   color: #666;
   line-height: 1.6;
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .post-actions {
