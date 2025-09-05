@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import type { Post, CreatePostData, User } from '../types';
 import { postApi, userApi } from '../services/api';
 import { Plus, Edit, Trash2, Save, X, FileText, User as UserIcon } from 'lucide-react';
+import FloatingParticles from './FloatingParticles';
+import LoadingSpinner from './LoadingSpinner';
 import './PostList.css';
 
 const PostList: React.FC = () => {
@@ -106,13 +108,15 @@ const PostList: React.FC = () => {
   if (loading) {
     return (
       <div className="post-list">
-        <div className="loading">Loading posts...</div>
+        <FloatingParticles />
+        <LoadingSpinner />
       </div>
     );
   }
 
   return (
     <div className="post-list">
+      <FloatingParticles />
       <div className="header">
         <div className="header-content">
           <FileText className="header-icon" />

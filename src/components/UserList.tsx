@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import type { User, CreateUserData } from '../types';
 import { userApi } from '../services/api';
 import { Plus, Edit, Trash2, Save, X, Users } from 'lucide-react';
+import FloatingParticles from './FloatingParticles';
+import LoadingSpinner from './LoadingSpinner';
 import './UserList.css';
 
 const UserList: React.FC = () => {
@@ -96,13 +98,15 @@ const UserList: React.FC = () => {
   if (loading) {
     return (
       <div className="user-list">
-        <div className="loading">Loading users...</div>
+        <FloatingParticles />
+        <LoadingSpinner />
       </div>
     );
   }
 
   return (
     <div className="user-list">
+      <FloatingParticles />
       <div className="header">
         <div className="header-content">
           <Users className="header-icon" />
