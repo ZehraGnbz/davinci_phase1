@@ -129,6 +129,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 2rem;
+  justify-items: center;
 }
 
 .feature-card {
@@ -145,6 +146,8 @@
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 400px;
 }
 
 .feature-card::before {

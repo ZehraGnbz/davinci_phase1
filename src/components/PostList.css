@@ -297,6 +297,7 @@
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
   align-items: start;
+  justify-items: center;
 }
 
 .post-card {
@@ -317,6 +318,8 @@
   flex-direction: column;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  width: 100%;
+  max-width: 400px;
 }
 
 .post-card::before {

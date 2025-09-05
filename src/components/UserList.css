@@ -291,6 +291,7 @@
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
   align-items: start;
+  justify-items: center;
 }
 
 .user-card {
@@ -311,6 +312,8 @@
   flex-direction: column;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  width: 100%;
+  max-width: 400px;
 }
 
 .user-card::before {
