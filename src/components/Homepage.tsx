@@ -13,31 +13,31 @@ const Homepage: React.FC<HomepageProps> = ({ onNavigate, currentPage }) => {
       <header className="header">
         <div className="header-content">
           <Home className="header-icon" />
-          <h1>JSONPlaceholder Manager</h1>
+          <h1>Phase 1</h1>
+          <nav className="nav">
+            <button
+              className={`nav-button ${currentPage === 'home' ? 'active' : ''}`}
+              onClick={() => onNavigate('home')}
+            >
+              <Home size={20} />
+              Home
+            </button>
+            <button
+              className={`nav-button ${currentPage === 'users' ? 'active' : ''}`}
+              onClick={() => onNavigate('users')}
+            >
+              <Users size={20} />
+              Users
+            </button>
+            <button
+              className={`nav-button ${currentPage === 'posts' ? 'active' : ''}`}
+              onClick={() => onNavigate('posts')}
+            >
+              <FileText size={20} />
+              Posts
+            </button>
+          </nav>
         </div>
-        <nav className="nav">
-          <button
-            className={`nav-button ${currentPage === 'home' ? 'active' : ''}`}
-            onClick={() => onNavigate('home')}
-          >
-            <Home size={20} />
-            Home
-          </button>
-          <button
-            className={`nav-button ${currentPage === 'users' ? 'active' : ''}`}
-            onClick={() => onNavigate('users')}
-          >
-            <Users size={20} />
-            Users
-          </button>
-          <button
-            className={`nav-button ${currentPage === 'posts' ? 'active' : ''}`}
-            onClick={() => onNavigate('posts')}
-          >
-            <FileText size={20} />
-            Posts
-          </button>
-        </nav>
       </header>
 
       {currentPage === 'home' && (
