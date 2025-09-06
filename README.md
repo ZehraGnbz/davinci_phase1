@@ -60,7 +60,7 @@ A modern, responsive web application built with React, TypeScript, and Vite. Thi
 - **Coffee Theme** - Warm brown and cream color palette
 - **Wood Textures** - SVG patterns for authentic feel
 - **Hover Effects** - Interactive animations on cards and buttons
-- **Gradient Backgrounds** - Beautiful color transitions
+- **Gradient Backgrounds** -  Color transitions
 - **Glass Morphism** - Modern backdrop blur effects
 - **Custom Favicon** - Branded "P1" icon
 
@@ -241,16 +241,7 @@ The application uses JSONPlaceholder API with intelligent fallback:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) for the API
-- [Lucide React](https://lucide.dev/) for beautiful icons
-- [Vite](https://vitejs.dev/) for the build tool
-- [Netlify](https://netlify.com/) for hosting
 
 ## 📞 Contact
 
@@ -258,5 +249,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Live Demo:** [https://davinciphase1.netlify.app](https://davinciphase1.netlify.app)
 
 ---
-
-**Built with ❤️ using React, TypeScript, and modern web technologies.**
